@@ -1,0 +1,83 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="5, 0, 0, 0" >
+            <TextBlock VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Height="20" Text="Width of button: " Margin="15, 0, 0, 0" />
+            <TextBlock VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Height="20" Text="Height of button: " Margin="30, 0, 0, 0" />
+        </StackPanel>
+        
+        <Separator></Separator>
+        
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="10, 0, 0, 0">
+            <TextBox x:Name="txtWidth" Width="100" Height="50" Padding="10" Margin="20"/>
+            <TextBox x:Name="txtHeight" Width="100" Height="50" Margin="10"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <StackPanel.Resources>
+                <!-- Шаблон для кнопок -->
+                <ControlTemplate x:Key="Button_Template" TargetType="{x:Type Button}">
+                    <Border BorderBrush="#333" BorderThickness="1" 
+                                TextBlock.Foreground="#ddd" Margin="0 0 10 0" MaxHeight="30"
+                                MinWidth="80" Padding="5" Name="myBorder">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="#676767" Offset="0"></GradientStop>
+                                <GradientStop Color="#474747" Offset="1"></GradientStop>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <ContentPresenter RecognizesAccessKey="True" Margin="{TemplateBinding Padding}"
+                              VerticalAlignment="Center" HorizontalAlignment="Center"></ContentPresenter>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="myBorder" Property="Background">
+                                <Setter.Value>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                        <GradientStop Color="#777777" Offset="0"></GradientStop>
+                                        <GradientStop Color="#575757" Offset="1"></GradientStop>
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="myBorder" Property="Cursor" Value="Hand"></Setter>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="myBorder" Property="Background">
+                                <Setter.Value>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                        <GradientStop Color="#939292" Offset="0"></GradientStop>
+                                        <GradientStop Color="#575757" Offset="1"></GradientStop>
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="myBorder" Property="Cursor" Value="Hand"></Setter>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="myBorder" Property="Background">
+                                <Setter.Value>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                        <GradientStop Color="#444" Offset="0"></GradientStop>
+                                        <GradientStop Color="#222" Offset="1"></GradientStop>
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="myBorder" Property="Opacity" Value="0.4"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </StackPanel.Resources>
+            <Button Template="{Binding Source={StaticResource ResourceKey=Button_Template}}" Click="Button_Click_1">CREATE</Button>
+            <Button Template="{Binding Source={StaticResource ResourceKey=Button_Template}}" Click="Button_Click">Empty</Button>
+            <Button Template="{Binding Source={StaticResource ResourceKey=Button_Template}}" Click="Button_Click_2">Open Window1</Button>
+        </StackPanel>
+        <StackPanel x:Name="sp1">
+            
+        </StackPanel>
+    </Grid>
+</Window>
