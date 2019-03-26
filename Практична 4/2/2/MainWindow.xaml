@@ -29,31 +29,54 @@
 
         <!--#region Middle-->
         <StackPanel Orientation="Vertical" Margin="5, 100, 5, 0">
-            <Button Content="SUBMIT" Height="55" Background="#FFC2582E" Foreground="#DDF7EAEC" BorderThickness="3" BorderBrush="#FF222028" />
+            <Button Content="SUBMIT" Height="55" Background="#FFC2582E" Foreground="#DDF7EAEC" BorderThickness="3" BorderBrush="#FF222028" Click="Button_Click" />
         </StackPanel>
 
 
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5" HorizontalAlignment="Center" >
-            <Border Padding="40, 0" Background="AntiqueWhite" BorderThickness="4" BorderBrush="#FF35C7B4" CornerRadius="7">
-                <CheckBox x:Name="chBxPost1"  Content="Post 1" Width="Auto" Height="50" FontSize="24" FontFamily="Rockwell"/>
-            </Border>
-            <Border Padding="40, 0" Background="AntiqueWhite" BorderThickness="4" BorderBrush="#FF35C7B4" CornerRadius="7">
-                <CheckBox x:Name="chBxPost2"  Content="Post 2" Width="Auto" Height="50" FontSize="24" FontFamily="Rockwell"/>
-            </Border>
-            <Border Padding="40, 0" Background="AntiqueWhite" BorderThickness="4" BorderBrush="#FF35C7B4" CornerRadius="7">
-                <CheckBox x:Name="chBxPost3" Content="Post 3" Width="Auto" Height="50" FontSize="24" FontFamily="Rockwell"/>
-            </Border>
-            <Border Padding="40, 0" Background="AntiqueWhite" BorderThickness="4" BorderBrush="#FF35C7B4"  CornerRadius="7">
-                <CheckBox x:Name="chBxPost4" Content="Post 4" Width="Auto" Height="50" FontSize="24" FontFamily="Rockwell"/>
-            </Border>
+        <StackPanel  x:Name="pnlTaxis" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="790" Height="250">
+
+            <StackPanel  Margin="5, 5" Background="WhiteSmoke"  Orientation="Vertical" HorizontalAlignment="Left" Width="250" Height="230">
+                <StackPanel Orientation="Vertical" VerticalAlignment="Top" Height="150" Width="240">
+                    <Image  Width="240" Height="150" Source="/pics/1.png"></Image>
+                </StackPanel>
+                <StackPanel  Height="100" Width="240" VerticalAlignment="Bottom">
+                    <!--<ListBox />-->
+                    <ListBox x:Name="lstBx1" Background="LightGray"  Width="240" Height="100">
+                        
+                    </ListBox>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel  Margin="5, 5" Background="WhiteSmoke"  Orientation="Vertical" HorizontalAlignment="Left" Width="250" Height="230">
+                <StackPanel Orientation="Vertical" VerticalAlignment="Top" Height="150" Width="240">
+                    <Image  Width="240" Height="150" Source="/pics/1.png"></Image>
+                </StackPanel>
+                <StackPanel  Height="100" Width="240" VerticalAlignment="Bottom">
+                    <!--<ListBox />-->
+                    <ListBox x:Name="lstBx2" Background="LightGray"  Width="240" Height="100">
+                        
+                    </ListBox>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel  Margin="5, 5" Background="WhiteSmoke"  Orientation="Vertical" HorizontalAlignment="Left" Width="250" Height="230">
+                <StackPanel Orientation="Vertical" VerticalAlignment="Top" Height="150" Width="240">
+                    <Image  Width="240" Height="150" Source="/pics/1.png"></Image>
+                </StackPanel>
+                <StackPanel  Height="100" Width="240" VerticalAlignment="Bottom">
+                    <!--<ListBox />-->
+                    <ListBox  x:Name="lstBx3" Background="LightGray"  Width="240" Height="100">
+                    
+                    </ListBox>
+                </StackPanel>
+            </StackPanel>
+        
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Margin="5" HorizontalAlignment="Center" >
+        <!--<StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Margin="5" HorizontalAlignment="Center" >
             <Button x:Name="btnShowPost1" Content="Show Post 1" Height="55" Background="#FF2C9CC5" Foreground="#DDF7EAEC" BorderThickness="3" BorderBrush="#FF4621B4" Margin="10, 0, 10, 0"  />
             <Button x:Name="btnShowPost2" Content="Show Post 2" Height="55" Background="#FF2C9CC5" Foreground="#DDF7EAEC" BorderThickness="3" BorderBrush="#FF4621B4" Margin="10, 0, 10, 0" />
             <Button x:Name="btnShowPost3" Content="Show Post 3" Height="55" Background="#FF2C9CC5" Foreground="#DDF7EAEC" BorderThickness="3" BorderBrush="#FF4621B4" Margin="10, 0, 10, 0" />
             <Button x:Name="btnShowPost4" Content="Show Post 4" Height="55" Background="#FF2C9CC5" Foreground="#DDF7EAEC" BorderThickness="3" BorderBrush="#FF4621B4" Margin="10, 0, 10, 0" />
-        </StackPanel>
+        </StackPanel>-->
 
 
         <!--#endregion-->

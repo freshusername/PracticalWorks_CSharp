@@ -24,5 +24,20 @@ namespace _2
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Dispetcher_ObjectStructure dispetcher = new Dispetcher_ObjectStructure();
+            dispetcher.AddCustomer(new Customer1(txtName.Text, txtDestination.Text) as CustomerElement);
+            dispetcher.Accept(new Taxi1() as AbstractTaxi_Visitor);
+            ListBoxItem itm = new ListBoxItem();
+            Taxi1 x = new Taxi1();
+            itm.Content = new Taxi1().VisitCustomer(new Customer1(txtName.Text, txtDestination.Text) as CustomerElement);
+            lstBx1.Items.Insert(0, itm);
+        }
+
+        //ListBoxItem itm = new ListBoxItem();
+        //itm.Content = abstractBuilder.computerProduct.ToString();
+        //lstBx3.Items.Insert(0, itm);
     }
 }

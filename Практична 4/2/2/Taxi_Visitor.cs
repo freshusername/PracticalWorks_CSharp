@@ -8,6 +8,6 @@ namespace _2
 {
     abstract class AbstractTaxi_Visitor
     {
-        public abstract void VisitCustomer(CustomerElement customer);
+        public abstract string VisitCustomer(CustomerElement customer);
     }
 }

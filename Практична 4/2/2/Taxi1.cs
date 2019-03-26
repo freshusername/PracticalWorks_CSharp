@@ -8,13 +8,13 @@ namespace _2
 {
     class Taxi1 : AbstractTaxi_Visitor
     {
-
-        public override void VisitCustomer(CustomerElement customer)
+        public override string VisitCustomer(CustomerElement customer)
         {
+            string s;
             Customer1 customer1 = customer as Customer1;
             customer1.Name = "John";
             customer1.PlaceToGo = "Університетська, 4";
-            Console.WriteLine($"customer's name : {customer1.Name},\n Destination: {customer1.PlaceToGo}");
+            return s = $"customer's name : {customer1.Name},\n Destination: {customer1.PlaceToGo}";
         }
 
     }
