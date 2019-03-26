@@ -19,9 +19,9 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <TextBlock Grid.Column="0" Text="Input destination place: " FontSize="20" TextAlignment="Center"/>
+            <TextBlock Grid.Column="0" Text="Destination place: " FontSize="20" TextAlignment="Center"/>
             <TextBox x:Name="txtDestination" Grid.Column="1" Margin="8, 0, 8, 0"/>
-            <TextBlock Grid.Row="1" Text="Input your name: " FontSize="20" TextAlignment="Center"/>
+            <TextBlock Grid.Row="1" Text="Mobile number of customer: " FontSize="20" TextAlignment="Center"/>
             <TextBox x:Name="txtName" Grid.Row="1" Grid.Column="1" Margin="8, 0, 8, 0"/>
             <!--<Button x:Name="btnNotify" Grid.Column="2" Content="NOTIFY" Click="btnNotify_Click"/>-->
         </Grid>
@@ -29,7 +29,7 @@
 
         <!--#region Middle-->
         <StackPanel Orientation="Vertical" Margin="5, 100, 5, 0">
-            <Button Content="SUBMIT" Height="55" Background="#FFC2582E" Foreground="#DDF7EAEC" BorderThickness="3" BorderBrush="#FF222028" Click="Button_Click" />
+            <Button Content="SEND TO TAXI DRIVERS" Height="55" Background="#FFC2582E" Foreground="#DDF7EAEC" BorderThickness="3" BorderBrush="#FF222028" Click="Button_Click" />
         </StackPanel>
 
 

@@ -10,11 +10,13 @@ namespace _2
     {
         public string Name { get; set; }
         public string PlaceToGo { get; set; }
+        public bool Taked { get; set; }
 
         public Customer1(string name, string placetogo)
         {
             this.Name = name;
             this.PlaceToGo = placetogo;
+            this.Taked = false;
         }
         public override void Accept(AbstractTaxi_Visitor visitor)
         {

@@ -12,9 +12,8 @@ namespace _2
         {
             string s;
             Customer2 customer2 = customer as Customer2;
-            customer2.Name = "Valentine";
-            customer2.PlaceToGo = "Сіді Таль, 5";
-            return s = $"Customer's name : {customer2.Name},\n Destination: {customer2.PlaceToGo}";
+            customer2.Taked = true;
+            return s = $"Customer's mobile : {customer2.Name},\nDestination: {customer2.PlaceToGo}\nIn Process: {customer2.Taked}";
         }
     }
 }
