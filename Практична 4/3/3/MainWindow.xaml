@@ -6,40 +6,34 @@
         xmlns:local="clr-namespace:_3"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800">
+        Title="MainWindow" Height="650" Width="800">
     <Grid>
         <StackPanel Orientation="Horizontal" >
             
             <StackPanel Width="450"  Orientation="Vertical">
                 <TextBlock Text="CALENDAR" TextAlignment="Center" FontFamily="Segoe UI Black"/>
-                <Calendar x:Name="ClndrCalendar" Height="350" HorizontalAlignment="Center"></Calendar>
+                <Calendar x:Name="ClndrCalendar" Height="350" HorizontalAlignment="Center" MouseLeftButtonDown="ClndrCalendar_MouseLeftButtonDown"/>
                 <Separator Margin="20" Background="Black" BorderBrush="#FF0B0B14"/>
                 <TextBlock Text="Choose people to visit: " TextAlignment="Center" FontFamily="Segoe UI Black"/>
-                <StackPanel Orientation="Horizontal">
-                    <Border Margin="10" CornerRadius="5" BorderThickness="4" BorderBrush="#FF6E6565">
-                        <TextBlock x:Name="txtUser" Margin="10, 2, 10, 2" HorizontalAlignment="Center" Text="              LOREM IPSUM          " FontFamily="Rockwell" FontSize="24" FontStyle="Italic" TextAlignment="Center"/>
-                    </Border>
-                    <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Margin="10">
-                    <StackPanel Width="150">
-                        <Button Content="User1"/>
-                        <Button Content="User2"/>
-                        <Button Content="All Users"/>
+                
+                <StackPanel Margin="7" Orientation="Vertical" Height="180">
+                    <Button x:Name="btnSubmit" Width="430" Content="SUBMIT" Background="#FF3984C0" Foreground="White" Click="btnSubmit_Click"></Button>
+                    <TextBlock Text="Name: "/>
+                    <TextBox x:Name="txtName"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Border Margin="10" CornerRadius="5" BorderThickness="4" BorderBrush="#FF6E6565">
+                            <TextBox x:Name="txtNarada" Margin="10, 2, 10, 2" HorizontalAlignment="Center" Text="          - Type of narada -        " FontFamily="Rockwell" FontSize="20" FontStyle="Italic" TextAlignment="Center" IsEnabled="False"/>
+                        </Border>
+                        <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Margin="10">
+                            <StackPanel Width="150">
+                                <Button x:Name="usual" Content="usual" Click="usual_Click"/>
+                                <Button x:Name="express" Content="express" Click="express_Click"/>
+                                <Button x:Name="normal" Content="normal" Click="normal_Click"/>
+                            </StackPanel>
+                        </materialDesign:PopupBox>
                     </StackPanel>
-                </materialDesign:PopupBox>
-                </StackPanel>
-                <StackPanel Margin="7" Orientation="Vertical" Height="100">
-                    <Button x:Name="btnSubmit" Width="430" Content="SUBMIT" Background="#FF3984C0" Foreground="White"></Button>
-
-                    <ItemsControl x:Name="calendarList">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <Calendar DisplayDate="{Binding CurrentDate}" />
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-
-
-
+                    <TextBlock Text="Date of narada: "/>
+                    <TextBox x:Name="txtDate"/>
                 </StackPanel>
             </StackPanel>
             

@@ -24,21 +24,45 @@ namespace _3
         {
             InitializeComponent();
 
-            CalendarList list = new CalendarList();
-            list.Add(new CalendarMonth() { CurrentDate = DateTime.Parse("1.1.1979") });
-            list.Add(new CalendarMonth() { CurrentDate = DateTime.Parse("1.2.1979") });
-            list.Add(new CalendarMonth() { CurrentDate = DateTime.Parse("1.3.1979") });
-
-            LstBxUSers.ItemsSource = list;
+            
+            //else { MessageBox("sd")}
 
 
         }
-    }
-    public class MyCalendar : Calendar
-    {
-        public MyCalendar()
+
+        private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
-            this.ClearValue(DisplayDateProperty);
+            if (ClndrCalendar.SelectedDate.HasValue && txtName.Text != "" && txtNarada.Text != "")
+            {
+                //ClndrCalendar.SelectedDate.Value.
+                
+                ObjectStructure structure = new ObjectStructure();
+                structure.Add(new User1(txtName.Text, txtNarada.Text, txtDate.Text) as AbstractElement);
+                structure.Accept(new CalendarVisitor() as AbstractVisitor);
+                ListBoxItem itm = new ListBoxItem();
+                itm.Content = new CalendarVisitor().VisitUser1(new User1(txtName.Text, txtNarada.Text, txtDate.Text) as AbstractElement);
+                LstBxUSers.Items.Insert(0, itm);
+
+            }
+            else { MessageBox.Show("Fill all textboxes please!"); }
+        }
+
+        private void ClndrCalendar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            txtDate.Text = ClndrCalendar.SelectedDate.Value.ToString("dd/MM/yyyy");
+        }
+
+        private void usual_Click(object sender, RoutedEventArgs e)
+        {
+            txtNarada.Text = usual.Content.ToString();
+        }
+        private void express_Click(object sender, RoutedEventArgs e)
+        {
+            txtNarada.Text = express.Content.ToString();
+        }
+        private void normal_Click(object sender, RoutedEventArgs e)
+        {
+            txtNarada.Text = normal.Content.ToString();
         }
     }
 }

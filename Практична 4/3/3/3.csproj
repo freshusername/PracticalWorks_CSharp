@@ -61,8 +61,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="CalendarList.cs" />
-    <Compile Include="CalendarMonth.cs" />
+    <Compile Include="ObjectStructure.cs" />
     <Compile Include="User1.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

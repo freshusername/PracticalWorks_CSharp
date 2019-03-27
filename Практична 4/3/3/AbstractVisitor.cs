@@ -8,6 +8,6 @@ namespace _3
 {
     abstract class AbstractVisitor
     {
-        public abstract void VisitUser1(AbstractElement element);
+        public abstract string VisitUser1(AbstractElement element);
     }
 }

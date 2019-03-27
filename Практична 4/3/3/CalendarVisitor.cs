@@ -13,7 +13,7 @@ namespace _3
             string s;
             User1 user1 = element as User1;
             user1.IsTaken = true;
-            return s = $"User {user1.Name} set new narada {user1.Narada} in: ....";
+            return s = $"User {user1.Name} set new narada *{user1.Narada}* in: {user1.Date}";
         }
     }
 }

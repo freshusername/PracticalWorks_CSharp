@@ -11,17 +11,18 @@ namespace _3
         public bool IsTaken { get; set; }
         public string Name { get; set; }
         public string Narada { get; set; }
-        public User1(string name, string narada, bool istaken)
+        public string Date { get; set; }
+        public User1(string name, string narada, string date)
         {
             this.Name = name;
             this.Narada = narada;
-            this.IsTaken = istaken;
+            this.IsTaken = false;
+            this.Date = date;
         }
 
         public override string Accept(AbstractVisitor visitor)
         {
-            visitor.VisitUser1(this);
-            return " ";
+            return visitor.VisitUser1(this);
         }
     }
 }
