@@ -25,15 +25,15 @@
                 </StackPanel>
                 <TextBlock Text="    Number of pages: " FontFamily="Rockwell" FontSize="16"/>
                 <TextBox x:Name="txtPages" Width="440"/>
-                <Button x:Name="btnSubmit" Margin="15, 20, 15, 20" Height="50" Width="430" Content="SUBMIT" Background="#FF3984C0" Foreground="White" Click="btnSubmit_Click"></Button>
+                <Button x:Name="btnSubmit" Margin="15, 20, 15, 20" Height="50" Width="420" Content="SUBMIT" Background="#FF3984C0" Foreground="White" Click="btnSubmit_Click"></Button>
             </StackPanel>
         </StackPanel>
 
         <StackPanel Orientation="Vertical" HorizontalAlignment="Right">
             <StackPanel Width="340" Orientation="Vertical">
-                <TextBlock Text="LIST OF USERS" TextAlignment="Center" FontFamily="Segoe UI Black"/>
+                <TextBlock Text="LIST OF PAGES" TextAlignment="Center" FontFamily="Segoe UI Black"/>
                 <Border BorderThickness="3" Margin="10" CornerRadius="25" BorderBrush="#FF3E81D6" >
-                   <ListBox x:Name="LstBxUSers" Height="500" Margin="7">
+                   <ListBox x:Name="LstBxUSers" Height="350" Margin="7">
                    </ListBox>
                 </Border>
             </StackPanel>

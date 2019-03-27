@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace _2
 {
-    class InkJetPrinter : AbstractPrinterStrategy
+    class LedPrinter : AbstractPrinterStrategy
     {
         public override string Algoritm()
         {
             string src;
-            return "InkJetPrinter prints InkJet pages: ";
+            return "Led printer prints led pages: ";
         }
     }
 }

@@ -8,10 +8,10 @@ namespace _2
 {
     class Context
     {
-        AbstractPrinterStrategy abstractPrinter { get; set; }
+        AbstractPrinterStrategy abstractPrinter;
         public Context(AbstractPrinterStrategy abstractPrinter)
         {
-            abstractPrinter = this.abstractPrinter;
+            this.abstractPrinter = abstractPrinter;
         }
         public string ExcecuteAlgoritm()
         {

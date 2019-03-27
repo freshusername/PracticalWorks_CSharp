@@ -34,7 +34,26 @@ namespace _2
 
             if (txtPrinter.Text == lazer.Content.ToString() && txtPages.Text != "" || txtPrinter.Text == led.Content.ToString() && txtPages.Text != "" || txtPrinter.Text == inkjet.Content.ToString() && txtPages.Text != "")
             {
-                
+                if (txtPrinter.Text == lazer.Content.ToString()) {
+                    Context context = new Context(new LazerPrinter());
+                    ListBoxItem itm = new ListBoxItem();
+                    itm.Content = context.ExcecuteAlgoritm() + txtPages.Text;
+                    LstBxUSers.Items.Insert(0, itm);
+                }
+                else if (txtPrinter.Text == inkjet.Content.ToString()) {
+                    Context context = new Context(new InkJetPrinter());
+                    ListBoxItem itm = new ListBoxItem();
+                    itm.Content = context.ExcecuteAlgoritm() + txtPages.Text;
+                    LstBxUSers.Items.Insert(0, itm);
+                }
+                else
+                {
+                    Context context = new Context(new LedPrinter());
+                    ListBoxItem itm = new ListBoxItem();
+                    itm.Content = context.ExcecuteAlgoritm() + txtPages.Text;
+                    LstBxUSers.Items.Insert(0, itm);
+                }
+
 
 
             }

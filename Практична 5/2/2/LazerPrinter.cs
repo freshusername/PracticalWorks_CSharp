@@ -11,7 +11,7 @@ namespace _2
         public override string Algoritm()
         {
             string src;
-            return "Lazer printer prints lazer page";
+            return "Lazer printer prints lazer pages: ";
         }
     }
 }
