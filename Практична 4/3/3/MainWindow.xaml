@@ -1,0 +1,56 @@
+﻿<Window x:Class="_3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_3"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="800">
+    <Grid>
+        <StackPanel Orientation="Horizontal" >
+            
+            <StackPanel Width="450"  Orientation="Vertical">
+                <TextBlock Text="CALENDAR" TextAlignment="Center" FontFamily="Segoe UI Black"/>
+                <Calendar x:Name="ClndrCalendar" Height="350" HorizontalAlignment="Center"></Calendar>
+                <Separator Margin="20" Background="Black" BorderBrush="#FF0B0B14"/>
+                <TextBlock Text="Choose people to visit: " TextAlignment="Center" FontFamily="Segoe UI Black"/>
+                <StackPanel Orientation="Horizontal">
+                    <Border Margin="10" CornerRadius="5" BorderThickness="4" BorderBrush="#FF6E6565">
+                        <TextBlock x:Name="txtUser" Margin="10, 2, 10, 2" HorizontalAlignment="Center" Text="              LOREM IPSUM          " FontFamily="Rockwell" FontSize="24" FontStyle="Italic" TextAlignment="Center"/>
+                    </Border>
+                    <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Margin="10">
+                    <StackPanel Width="150">
+                        <Button Content="User1"/>
+                        <Button Content="User2"/>
+                        <Button Content="All Users"/>
+                    </StackPanel>
+                </materialDesign:PopupBox>
+                </StackPanel>
+                <StackPanel Margin="7" Orientation="Vertical" Height="100">
+                    <Button x:Name="btnSubmit" Width="430" Content="SUBMIT" Background="#FF3984C0" Foreground="White"></Button>
+
+                    <ItemsControl x:Name="calendarList">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Calendar DisplayDate="{Binding CurrentDate}" />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+
+
+                </StackPanel>
+            </StackPanel>
+            
+            <StackPanel Width="340" Orientation="Vertical">
+                <TextBlock Text="LIST OF USERS" TextAlignment="Center" FontFamily="Segoe UI Black"/>
+                <Border BorderThickness="3" Margin="10" CornerRadius="25" BorderBrush="#FF3E81D6" >
+                    <ListBox x:Name="LstBxUSers" Height="500" Margin="7">
+                    </ListBox>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</Window>
