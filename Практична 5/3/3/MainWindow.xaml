@@ -25,10 +25,10 @@
             </StackPanel>
                 
             <StackPanel Orientation="Vertical" Height="340">
-                    <TextBlock Text="    Number of tickets: " FontFamily="Rockwell" FontSize="16"/>
-                    <TextBox x:Name="txtTickets" Width="440"/>
-                    <CheckBox Content="Горящий" FontFamily="Rockwell" FontSize="20"/>
-                    <CheckBox Content="Біля вікна" FontFamily="Rockwell" FontSize="20"/>
+                    <!--<TextBlock Text="    Number of tickets: " FontFamily="Rockwell" FontSize="16"/>
+                    <TextBox x:Name="txtTickets" Width="440"/>-->
+                    <CheckBox x:Name="chBxHot" Content="Горящий" FontFamily="Rockwell" FontSize="20"/>
+                    <CheckBox x:Name="chBxNearWindow" Content="Біля вікна" FontFamily="Rockwell" FontSize="20"/>
                     <Button x:Name="btnSubmit" Margin="15, 20, 15, 20" Height="50" Width="420" Content="SUBMIT" Background="#FF3984C0" Foreground="White" Click="btnSubmit_Click"></Button>
 
                     <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">

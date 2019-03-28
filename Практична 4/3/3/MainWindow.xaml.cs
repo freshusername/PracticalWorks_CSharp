@@ -35,13 +35,22 @@ namespace _3
             if (ClndrCalendar.SelectedDate.HasValue && txtName.Text != "" && txtNarada.Text != "")
             {
                 //ClndrCalendar.SelectedDate.Value.
-                
+
                 ObjectStructure structure = new ObjectStructure();
                 structure.Add(new User1(txtName.Text, txtNarada.Text, txtDate.Text) as AbstractElement);
                 structure.Accept(new CalendarVisitor() as AbstractVisitor);
                 ListBoxItem itm = new ListBoxItem();
-                itm.Content = new CalendarVisitor().VisitUser1(new User1(txtName.Text, txtNarada.Text, txtDate.Text) as AbstractElement);
-                LstBxUSers.Items.Insert(0, itm);
+                User1 user1 = new User1(txtName.Text, txtNarada.Text, txtDate.Text);
+                
+                if (user1.IsTaken == false)
+                {
+                    itm.Content = new CalendarVisitor().VisitUser1(user1 as AbstractElement);
+                    LstBxUSers.Items.Insert(0, itm);
+                }
+                else
+                {
+                    MessageBox.Show("This date is taken!");
+                }
 
             }
             else { MessageBox.Show("Fill all textboxes please!"); }

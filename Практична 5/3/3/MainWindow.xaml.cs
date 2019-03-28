@@ -27,6 +27,48 @@ namespace _3
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
+            bool ishot = false, isnearwindow = false;
+            if (chBxHot.IsChecked == true)
+            {
+                ishot = true;
+            }
+            if (chBxNearWindow.IsChecked == true)
+            {
+                isnearwindow = true;
+            }
+
+            if (txtTypeTicket.Text != "" )
+            {
+               
+                if (txtTypeTicket.Text == econom.Content.ToString())
+                {
+                    Ticket ticket = new Ticket(txtTypeTicket.Text, isnearwindow, ishot, new EconomClassPrice());
+                    //ticket.priceStrategy();
+                    ListBoxItem itm = new ListBoxItem();
+                    itm.Content = ticket.GetName() + ticket.SetPrice();
+                    LstBxUSers.Items.Insert(0, itm);
+
+                }
+                else if (txtTypeTicket.Text == biznes.Content.ToString())
+                {
+                    Ticket ticket = new Ticket(txtTypeTicket.Text, isnearwindow, ishot, new BusinessClassPrice());
+                    //ticket.priceStrategy();
+                    ListBoxItem itm = new ListBoxItem();
+                    itm.Content = ticket.GetName() + ticket.SetPrice();
+                    LstBxUSers.Items.Insert(0, itm);
+                }
+                else if (txtTypeTicket.Text == pershui.Content.ToString())
+                {
+                    Ticket ticket = new Ticket(txtTypeTicket.Text, isnearwindow, ishot, new PershuiClassPrice());
+                    //ticket.priceStrategy();
+                    ListBoxItem itm = new ListBoxItem();
+                    itm.Content = ticket.GetName() + ticket.SetPrice();
+                    LstBxUSers.Items.Insert(0, itm);
+                }
+                else { MessageBox.Show("Choose type of ticket!"); }
+            }
+            else { MessageBox.Show("Wrong Data!"); }
+
 
         }
 
