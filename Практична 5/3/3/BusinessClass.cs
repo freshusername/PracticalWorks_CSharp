@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _2
 {
-    class LedPrinter : AbstractPrinterStrategy
+    class BusinessClass : AbstractClassStrategy
     {
         public override string Algoritm()
         {

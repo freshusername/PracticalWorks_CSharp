@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace _2
 {
-    class InkJetPrinter : AbstractPrinterStrategy
+    class PershuiClass : AbstractClassStrategy
     {
         public override string Algoritm()
         {
             string src;
-            return "InkJetPrinter prints InkJet pages: ";
+            return "Lazer printer prints lazer pages: ";
         }
     }
 }

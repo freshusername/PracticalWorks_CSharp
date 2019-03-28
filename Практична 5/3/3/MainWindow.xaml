@@ -9,22 +9,32 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
-            <StackPanel Margin="7" Orientation="Vertical" Height="180">
-                <StackPanel Orientation="Horizontal">
-                    <Border Margin="10" CornerRadius="5" BorderThickness="4" BorderBrush="#FF6E6565">
-                        <TextBox x:Name="txtPrinter" Margin="10, 2, 10, 2" HorizontalAlignment="Center" Text="          - Type of printer -        " FontFamily="Rockwell" FontSize="20" FontStyle="Italic" TextAlignment="Center" IsEnabled="False"/>
+            <StackPanel HorizontalAlignment="Center" Margin="7" Orientation="Vertical" Height="80">
+                <StackPanel Orientation="Horizontal" Width="430">
+                    <Border Width="350" Margin="10" CornerRadius="5" BorderThickness="3" BorderBrush="#FF6E6565">
+                        <TextBox x:Name="txtTypeTicket" Margin="10, 2, 10, 2" HorizontalAlignment="Center" Text="          - Type of ticket -        " FontFamily="Rockwell" FontSize="20" FontStyle="Italic" TextAlignment="Center" IsEnabled="False"/>
                     </Border>
                     <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Margin="10">
                         <StackPanel Width="150">
-                            <Button x:Name="lazer" Content="Lazer printer" Click="lazer_Click"/>
-                            <Button x:Name="inkjet" Content="InkJet printer" Click="inkjet_Click"/>
-                            <Button x:Name="led" Content="Led printer" Click="led_Click"/>
+                            <Button x:Name="econom" Content="Econom class" Click="econom_Click"/>
+                            <Button x:Name="biznes" Content="Business class" Click="bizness_Click"/>
+                            <Button x:Name="pershui" Content="First class" Click="pershui_Click"/>
                         </StackPanel>
                     </materialDesign:PopupBox>
                 </StackPanel>
-                <TextBlock Text="    Number of pages: " FontFamily="Rockwell" FontSize="16"/>
-                <TextBox x:Name="txtPages" Width="440"/>
-                <Button x:Name="btnSubmit" Margin="15, 20, 15, 20" Height="50" Width="420" Content="SUBMIT" Background="#FF3984C0" Foreground="White" Click="btnSubmit_Click"></Button>
+            </StackPanel>
+                
+            <StackPanel Orientation="Vertical" Height="340">
+                    <TextBlock Text="    Number of tickets: " FontFamily="Rockwell" FontSize="16"/>
+                    <TextBox x:Name="txtTickets" Width="440"/>
+                    <CheckBox Content="Горящий" FontFamily="Rockwell" FontSize="20"/>
+                    <CheckBox Content="Біля вікна" FontFamily="Rockwell" FontSize="20"/>
+                    <Button x:Name="btnSubmit" Margin="15, 20, 15, 20" Height="50" Width="420" Content="SUBMIT" Background="#FF3984C0" Foreground="White" Click="btnSubmit_Click"></Button>
+
+                    <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <CheckBox Content="Біля вікна"/>
+                        <CheckBox/>
+                    </StackPanel>-->
             </StackPanel>
         </StackPanel>
 

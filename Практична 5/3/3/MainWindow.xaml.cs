@@ -24,5 +24,25 @@ namespace _3
         {
             InitializeComponent();
         }
+
+        private void btnSubmit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void econom_Click(object sender, RoutedEventArgs e)
+        {
+            txtTypeTicket.Text = econom.Content.ToString();
+        }
+
+        private void bizness_Click(object sender, RoutedEventArgs e)
+        {
+            txtTypeTicket.Text = biznes.Content.ToString();
+        }
+
+        private void pershui_Click(object sender, RoutedEventArgs e)
+        {
+            txtTypeTicket.Text = pershui.Content.ToString();
+        }
     }
 }

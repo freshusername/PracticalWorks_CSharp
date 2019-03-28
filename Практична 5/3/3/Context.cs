@@ -8,14 +8,14 @@ namespace _2
 {
     class Context
     {
-        AbstractPrinterStrategy abstractPrinter;
-        public Context(AbstractPrinterStrategy abstractPrinter)
+        AbstractClassStrategy abstractClass;
+        public Context(AbstractClassStrategy abstractPrinter)
         {
-            this.abstractPrinter = abstractPrinter;
+            this.abstractClass = abstractPrinter;
         }
         public string ExcecuteAlgoritm()
         {
-            return this.abstractPrinter.Algoritm();
+            return this.abstractClass.Algoritm();
         }
     }
 }

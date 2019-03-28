@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _2
 {
-    abstract class AbstractPrinterStrategy
+    abstract class AbstractClassStrategy
     {
         public abstract string Algoritm();
     }
