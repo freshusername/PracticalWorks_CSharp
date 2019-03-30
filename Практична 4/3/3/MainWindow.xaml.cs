@@ -24,10 +24,6 @@ namespace _3
         {
             InitializeComponent();
 
-            
-            //else { MessageBox("sd")}
-
-
         }
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
