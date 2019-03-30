@@ -8,7 +8,7 @@ namespace _2
 {
     class CarDecorator : AbstractTravelDecorator
     {
-        public CarDecorator(string name, AbstractTravel travel) : base(name + "; подорож на машині", travel)
+        public CarDecorator(AbstractTravel travel) : base(travel.Name + "; подорож на машині", travel)
         { }
         public override int GetCost()
         {

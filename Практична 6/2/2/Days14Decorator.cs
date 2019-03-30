@@ -8,11 +8,12 @@ namespace _2
 {
     class Days14Decorator : AbstractTravelDecorator
     {
-        public Days14Decorator(string name, AbstractTravel travel) : base(name + " на 14 днів", travel)
+        public Days14Decorator(AbstractTravel travel) : base(travel.Name + " на 14 днів", travel)
         { }
         public override int GetCost()
         {
-            return protectedTravel.GetCost() + 14 * 500;
+            int price = protectedTravel.GetCost() + 14 * protectedTravel.GetCost();
+            return price;
         }
     }
 }

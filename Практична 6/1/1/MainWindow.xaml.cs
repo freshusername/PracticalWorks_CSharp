@@ -21,11 +21,73 @@ namespace _1
     /// </summary>
     public partial class MainWindow : Window
     {
+        public string s1, s2, s3;
         DispatcherTimer timer = null;
 
         public MainWindow()
         {
             InitializeComponent();
+            s1 = txtFromCity.Text;
+            s2 = txtToCity.Text;
+            s3 = txtTypeOfParcel.Text;
+        }
+
+
+
+        private void btnSubmit_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtFromCity.Text != s1 && txtToCity.Text != s2 && txtTypeOfParcel.Text != s3)
+            {
+                AbstractParcel parcel;
+                if (txtTypeOfParcel.Text == "Normal Class")
+                {
+                    parcel = new NormalParcel();
+                    if (chBxHasInsurance.IsChecked == true)
+                    {
+                        parcel = new InsuranceParcelDecorator(parcel);//посилка зы страховкою
+                    }
+                    ListBoxItem itm = new ListBoxItem();
+                    itm.Content = ShowInfo(parcel);
+                    LstBxParcels.Items.Insert(0, itm);
+
+                }
+                else if (txtTypeOfParcel.Text == "Elite Class")
+                {
+                     parcel = new EliteParcel();
+                    if (chBxHasInsurance.IsChecked == true)
+                    {
+                        parcel = new InsuranceParcelDecorator(parcel);//посилка зы страховкою
+                    }
+                    ListBoxItem itm = new ListBoxItem();
+                    itm.Content = ShowInfo(parcel);
+                    LstBxParcels.Items.Insert(0, itm);
+
+                }
+                else if (txtTypeOfParcel.Text == "Extra Class")
+                {
+                    parcel = new ExtraParcel();
+                    if (chBxHasInsurance.IsChecked == true)
+                    {
+                        parcel = new InsuranceParcelDecorator(parcel);//посилка зы страховкою
+                    }
+                    ListBoxItem itm = new ListBoxItem();
+                    itm.Content = ShowInfo(parcel);
+                    LstBxParcels.Items.Insert(0, itm);
+
+                }
+
+            }
+            else { MessageBox.Show("Wrong Data!"); }
+
+        }
+
+
+
+
+
+        public string ShowInfo(AbstractParcel parcel)
+        {
+            return $"Type of parcel: {parcel.Name}\nPrice of parcel: {parcel.GetCost()} UAH\nFrom:{txtFromCity.Text} => To: {txtToCity.Text}";
         }
 
         private void Kyiv_Click(object sender, RoutedEventArgs e)
@@ -36,6 +98,7 @@ namespace _1
         private void Vynnitsia_Click(object sender, RoutedEventArgs e)
         {
             txtFromCity.Text = Vynnitsia.Content.ToString();
+
         }
 
         private void Chernivtsi_Click(object sender, RoutedEventArgs e)
@@ -43,14 +106,10 @@ namespace _1
             txtFromCity.Text = Chernivtsi.Content.ToString();
         }
 
-        private void Odessa_Click(object sender, RoutedEventArgs e)
-        {
-            txtToCity.Text = Odessa.Content.ToString();
-        }
-
         private void Zhytomir_Click(object sender, RoutedEventArgs e)
         {
             txtToCity.Text = Zhytomir.Content.ToString();
+
         }
 
         private void Khmelnytskyi_Click(object sender, RoutedEventArgs e)
@@ -58,14 +117,14 @@ namespace _1
             txtToCity.Text = Khmelnytskyi.Content.ToString();
         }
 
+        private void Odessa_Click(object sender, RoutedEventArgs e)
+        {
+            txtToCity.Text = Odessa.Content.ToString();
+        }
+
         private void extra_Click(object sender, RoutedEventArgs e)
         {
             txtTypeOfParcel.Text = extra.Content.ToString();
-        }
-
-        private void elite_Click(object sender, RoutedEventArgs e)
-        {
-            txtTypeOfParcel.Text = elite.Content.ToString();
         }
 
         private void normal_Click_1(object sender, RoutedEventArgs e)
@@ -73,77 +132,9 @@ namespace _1
             txtTypeOfParcel.Text = normal.Content.ToString();
         }
 
-        private void btnSubmit_Click(object sender, RoutedEventArgs e)
+        private void elite_Click(object sender, RoutedEventArgs e)
         {
-            if (txtFromCity.Text != "" && txtToCity.Text != "" && txtTypeOfParcel.Text != "" )
-            {
-                if (txtTypeOfParcel.Text == "Extra Class")
-                {
-                    AbstractTravel parcel1 = new ExtraParcel();
-                    if (chBxHasInsurance.IsChecked == true)
-                    {
-                        parcel1 = new InsuranceParcelDecorator(parcel1);//посилка зы страховкою
-                    }
-                    ListBoxItem itm = new ListBoxItem();
-                    itm.Content = ShowInfo(parcel1);
-                    LstBxParcels.Items.Insert(0, itm);
-                    NotificationWindow popup = new NotificationWindow();
-                    popup.Show();
-                    timer = new DispatcherTimer();
-                    timer.Interval = TimeSpan.FromMilliseconds(1000);
-                    //timer.Tick += new EventHandler(timer_Tick);
-                    timer.Start();
-                    //popup.Hide();
-                    //popup.Close();
-
-                }
-                else if (txtTypeOfParcel.Text == "Normal Class")
-                {
-                    AbstractTravel parcel1 = new NormalParcel();
-                    if (chBxHasInsurance.IsChecked == true)
-                    {
-                        parcel1 = new InsuranceParcelDecorator(parcel1);//посилка зы страховкою
-                    }
-                    ListBoxItem itm = new ListBoxItem();
-                    itm.Content = ShowInfo(parcel1);
-                    LstBxParcels.Items.Insert(0, itm);
-                    NotificationWindow popup = new NotificationWindow();
-                    popup.Show();
-                    timer = new DispatcherTimer();
-                    timer.Interval = TimeSpan.FromMilliseconds(1000);
-                    //timer.Tick += new EventHandler(timer_Tick);
-                    timer.Start();
-                    //popup.Hide();
-                    //popup.Close();
-                }
-                else if (txtTypeOfParcel.Text == "Elite Class")
-                {
-                    AbstractTravel parcel1 = new EliteParcel();
-                    if (chBxHasInsurance.IsChecked == true)
-                    {
-                        parcel1 = new InsuranceParcelDecorator(parcel1);//посилка зы страховкою
-                    }
-                    ListBoxItem itm = new ListBoxItem();
-                    itm.Content = ShowInfo(parcel1);
-                    LstBxParcels.Items.Insert(0, itm);
-                    NotificationWindow popup = new NotificationWindow();
-                    popup.Show();
-                    timer = new DispatcherTimer();
-                    timer.Interval = TimeSpan.FromMilliseconds(1000);
-                    //timer.Tick += new EventHandler(timer_Tick);
-                    timer.Start();
-                    //popup.Hide();
-                    //popup.Close();
-                }
-            }
-            else { MessageBox.Show("Wrong Data!"); }
+            txtTypeOfParcel.Text = elite.Content.ToString();
         }
-        
-
-        public string ShowInfo(AbstractTravel parcel)
-        {
-            return $"Type of parcel: {parcel.Name}\nPrice of parcel: {parcel.GetCost()} UAH\nFrom:{txtFromCity.Text} => To: {txtToCity.Text}";
-        }
-
     }
 }
