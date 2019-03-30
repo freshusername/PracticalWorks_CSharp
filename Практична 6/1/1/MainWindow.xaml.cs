@@ -79,7 +79,7 @@ namespace _1
             {
                 if (txtTypeOfParcel.Text == "Extra Class")
                 {
-                    AbstractParcel parcel1 = new ExtraParcel();
+                    AbstractTravel parcel1 = new ExtraParcel();
                     if (chBxHasInsurance.IsChecked == true)
                     {
                         parcel1 = new InsuranceParcelDecorator(parcel1);//посилка зы страховкою
@@ -99,7 +99,7 @@ namespace _1
                 }
                 else if (txtTypeOfParcel.Text == "Normal Class")
                 {
-                    AbstractParcel parcel1 = new NormalParcel();
+                    AbstractTravel parcel1 = new NormalParcel();
                     if (chBxHasInsurance.IsChecked == true)
                     {
                         parcel1 = new InsuranceParcelDecorator(parcel1);//посилка зы страховкою
@@ -118,7 +118,7 @@ namespace _1
                 }
                 else if (txtTypeOfParcel.Text == "Elite Class")
                 {
-                    AbstractParcel parcel1 = new EliteParcel();
+                    AbstractTravel parcel1 = new EliteParcel();
                     if (chBxHasInsurance.IsChecked == true)
                     {
                         parcel1 = new InsuranceParcelDecorator(parcel1);//посилка зы страховкою
@@ -140,7 +140,7 @@ namespace _1
         }
         
 
-        public string ShowInfo(AbstractParcel parcel)
+        public string ShowInfo(AbstractTravel parcel)
         {
             return $"Type of parcel: {parcel.Name}\nPrice of parcel: {parcel.GetCost()} UAH\nFrom:{txtFromCity.Text} => To: {txtToCity.Text}";
         }

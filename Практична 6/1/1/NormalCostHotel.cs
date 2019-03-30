@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _1
+namespace _2
 {
-    class NormalParcel : AbstractParcel
+    class NormalCostHotel : AbstractTravel
     {
-        public NormalParcel() : base("Normal parcel")
+        public NormalCostHotel() : base("NormalCost hotel room")
         {}
 
         public override int GetCost()
         {
-            return 40;
+            return 300;
         }
     }
 }
