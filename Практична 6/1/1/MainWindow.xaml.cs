@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace _1
 {
@@ -20,6 +21,8 @@ namespace _1
     /// </summary>
     public partial class MainWindow : Window
     {
+        DispatcherTimer timer = null;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -72,20 +75,71 @@ namespace _1
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
-            if (txtFromCity.Text != "" && txtToCity.Text != "" && txtTypeOfParcel.Text != "" && txtPrice.Text != "")
+            if (txtFromCity.Text != "" && txtToCity.Text != "" && txtTypeOfParcel.Text != "" )
             {
                 if (txtTypeOfParcel.Text == "Extra Class")
                 {
                     AbstractParcel parcel1 = new ExtraParcel();
-                    parcel1 = new InsuranceParcelDecorator(parcel1);//посилка зы страховкою
-
+                    if (chBxHasInsurance.IsChecked == true)
+                    {
+                        parcel1 = new InsuranceParcelDecorator(parcel1);//посилка зы страховкою
+                    }
                     ListBoxItem itm = new ListBoxItem();
                     itm.Content = ShowInfo(parcel1);
                     LstBxParcels.Items.Insert(0, itm);
+                    NotificationWindow popup = new NotificationWindow();
+                    popup.Show();
+                    timer = new DispatcherTimer();
+                    timer.Interval = TimeSpan.FromMilliseconds(1000);
+                    //timer.Tick += new EventHandler(timer_Tick);
+                    timer.Start();
+                    //popup.Hide();
+                    //popup.Close();
+
+                }
+                else if (txtTypeOfParcel.Text == "Normal Class")
+                {
+                    AbstractParcel parcel1 = new NormalParcel();
+                    if (chBxHasInsurance.IsChecked == true)
+                    {
+                        parcel1 = new InsuranceParcelDecorator(parcel1);//посилка зы страховкою
+                    }
+                    ListBoxItem itm = new ListBoxItem();
+                    itm.Content = ShowInfo(parcel1);
+                    LstBxParcels.Items.Insert(0, itm);
+                    NotificationWindow popup = new NotificationWindow();
+                    popup.Show();
+                    timer = new DispatcherTimer();
+                    timer.Interval = TimeSpan.FromMilliseconds(1000);
+                    //timer.Tick += new EventHandler(timer_Tick);
+                    timer.Start();
+                    //popup.Hide();
+                    //popup.Close();
+                }
+                else if (txtTypeOfParcel.Text == "Elite Class")
+                {
+                    AbstractParcel parcel1 = new EliteParcel();
+                    if (chBxHasInsurance.IsChecked == true)
+                    {
+                        parcel1 = new InsuranceParcelDecorator(parcel1);//посилка зы страховкою
+                    }
+                    ListBoxItem itm = new ListBoxItem();
+                    itm.Content = ShowInfo(parcel1);
+                    LstBxParcels.Items.Insert(0, itm);
+                    NotificationWindow popup = new NotificationWindow();
+                    popup.Show();
+                    timer = new DispatcherTimer();
+                    timer.Interval = TimeSpan.FromMilliseconds(1000);
+                    //timer.Tick += new EventHandler(timer_Tick);
+                    timer.Start();
+                    //popup.Hide();
+                    //popup.Close();
                 }
             }
             else { MessageBox.Show("Wrong Data!"); }
         }
+        
+
         public string ShowInfo(AbstractParcel parcel)
         {
             return $"Type of parcel: {parcel.Name}\nPrice of parcel: {parcel.GetCost()} UAH\nFrom:{txtFromCity.Text} => To: {txtToCity.Text}";
