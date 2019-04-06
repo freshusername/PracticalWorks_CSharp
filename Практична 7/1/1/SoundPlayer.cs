@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace _1
 {
-    class AudioPlayerAdapter : IMediaPlayer
+    class SoundPlayer : ISoundPlayer
     {
-        private readonly Lazy<SoundPlayer> _lazySoundPlayer = new Lazy<SoundPlayer>();
-        public void Load(string file)
+        private readonly Lazy<System.Media.SoundPlayer> _lazySoundPlayer = new Lazy<System.Media.SoundPlayer>();
+        public void LoadSound(string file)
         {
             this._lazySoundPlayer.Value.SoundLocation = file;
             this._lazySoundPlayer.Value.Load();
         }
 
-        public void Play()
+        public void PlaySound()
         {
             _lazySoundPlayer.Value.Play();
         }

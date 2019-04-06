@@ -114,22 +114,41 @@ namespace _1
 
         private void BtnTest_Click(object sender, RoutedEventArgs e)
         {
-            IMediaPlayer player = new AudioPlayerAdapter();
-            string mp3File = string.Empty;
+            ISoundPlayer player = new SoundPlayer();
+            string wavFile = string.Empty;
 
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Media files (*.wav;)|*.wav;|All files (*.*)|*.*";//*.mpg;*.mpeg;*.mp4;)|*.mp3;*.mpg;*.mpeg;*.mp4;|All files (*.*)|*.*";
             if (openFileDialog.ShowDialog() == true)
-                mp3File = openFileDialog.FileName;
-            
+                wavFile = openFileDialog.FileName;
 
-            /* Skipped */
+            // play the audio file
+            if (!string.IsNullOrEmpty(wavFile))
+            {
+                player.LoadSound(wavFile);
+                player.PlaySound();
+            }
+        }
+
+        private void BtnTest1_Click(object sender, RoutedEventArgs e)
+        {
+            Mp3Player mp3player = new Mp3Player();
+            ISoundPlayer mp3Player = new Mp3ToSoundPlayer(mp3player);
+            Player player = new Player();
+
+            string mp3File = string.Empty;
+
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Media files (*.mp3;)|*.mp3;|All files (*.*)|*.*";//*.mpg;*.mpeg;*.mp4;)|*.mp3;*.mpg;*.mpeg;*.mp4;|All files (*.*)|*.*";
+            if (openFileDialog.ShowDialog() == true)
+                mp3File = openFileDialog.FileName;
 
             // play the audio file
             if (!string.IsNullOrEmpty(mp3File))
             {
-                player.Load(mp3File);
-                player.Play();
+                player.Play(mp3Player, mp3File);
+                
             }
         }
 

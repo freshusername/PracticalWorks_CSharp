@@ -67,7 +67,8 @@
             </StatusBarItem>
         </StatusBar>
         <StackPanel VerticalAlignment="Bottom" >
-            <Button x:Name="btnTest" Width="55" Height="35" Content="test" Click="BtnTest_Click"></Button>
+            <Button x:Name="btnTest" Width="80" Height="35" Content="testwav" Click="BtnTest_Click"></Button>
+            <Button x:Name="btnTest1" Width="80" Height="35" Content="testmp3" Click="BtnTest1_Click"></Button>
         </StackPanel>
     </Grid>
 </Window>

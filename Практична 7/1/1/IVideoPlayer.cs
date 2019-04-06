@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace _1
 {
-    interface IMediaPlayer
+    interface IVideoPlayer
     {
-        void Load(string file);
-        void Play();
-
+        void LoadVideo(string file);
+        void PlayVideo();
     }
 }
