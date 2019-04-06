@@ -112,6 +112,27 @@ namespace _1
             mePlayer.Volume += (e.Delta > 0) ? 0.1 : -0.1;
         }
 
+        private void BtnTest_Click(object sender, RoutedEventArgs e)
+        {
+            IMediaPlayer player = new AudioPlayerAdapter();
+            string mp3File = string.Empty;
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Media files (*.wav;)|*.wav;|All files (*.*)|*.*";//*.mpg;*.mpeg;*.mp4;)|*.mp3;*.mpg;*.mpeg;*.mp4;|All files (*.*)|*.*";
+            if (openFileDialog.ShowDialog() == true)
+                mp3File = openFileDialog.FileName;
+            
+
+            /* Skipped */
+
+            // play the audio file
+            if (!string.IsNullOrEmpty(mp3File))
+            {
+                player.Load(mp3File);
+                player.Play();
+            }
+        }
+
         //private void btnOpenAudioFile_Click(object sender, RoutedEventArgs e)
         //{
         //    MediaPlayer mediaPlayer = new MediaPlayer();

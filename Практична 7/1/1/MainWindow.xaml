@@ -66,5 +66,8 @@
                 <ProgressBar Name="pbVolume" Width="50" Height="12" Maximum="1" Value="{Binding ElementName=mePlayer, Path=Volume}" />
             </StatusBarItem>
         </StatusBar>
+        <StackPanel VerticalAlignment="Bottom" >
+            <Button x:Name="btnTest" Width="55" Height="35" Content="test" Click="BtnTest_Click"></Button>
+        </StackPanel>
     </Grid>
 </Window>
