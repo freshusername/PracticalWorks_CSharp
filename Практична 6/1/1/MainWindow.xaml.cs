@@ -22,7 +22,7 @@ namespace _1
     public partial class MainWindow : Window
     {
         public string s1, s2, s3;
-        DispatcherTimer timer = null;
+        //DispatcherTimer timer = null;
 
         public MainWindow()
         {
