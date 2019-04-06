@@ -61,6 +61,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="WMPLib\WindowsMediaPlayer.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -69,10 +70,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="IVideoPlayer.cs" />
+    <Compile Include="IMp4Player.cs" />
     <Compile Include="ISoundPlayer.cs" />
     <Compile Include="Mp3Player.cs" />
     <Compile Include="Mp3ToSoundPlayer.cs" />
+    <Compile Include="Mp4Player.cs" />
+    <Compile Include="Mp4ToMediaPlayer.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="SoundPlayer.cs" />
     <Compile Include="IMp3Player.cs" />

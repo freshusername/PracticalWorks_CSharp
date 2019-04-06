@@ -8,5 +8,7 @@ namespace _1
 {
     interface IMp4Player
     {
+        void LoadMp4(string file);
+        void PlayMp4();
     }
 }

@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace _1
 {
-    interface IVideoPlayer
+    class Mp4ToMediaPlayer
     {
-        void LoadVideo(string file);
-        void PlayVideo();
+
     }
 }

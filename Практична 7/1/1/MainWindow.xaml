@@ -18,28 +18,33 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
+        
+            
         <StackPanel Width="790" Orientation="Horizontal" Background="#FFEEF5FD">
             <StackPanel Width="350" Orientation="Horizontal" HorizontalAlignment="Left">
-            <ToolBar Background="#FFEEF5FD">
-            <Button Command="ApplicationCommands.Open">
-                <Image Source="/icons/Folder.png" Height="45"/>
-            </Button>
-            <Separator />
-            <Button Command="MediaCommands.Play">
-                <Image Source="/icons/Play.png" Height="45"/>
-            </Button>
-            <Button Command="MediaCommands.Pause">
-                <Image Source="/icons/Pause.png" Height="45"/>
-            </Button>
-            <Button Command="MediaCommands.Stop">
-                <Image Source="/icons/Stop.png" Height="45"/>
-            </Button>
-            </ToolBar>
-            <StackPanel Width="430" Orientation="Vertical" Margin="9, 4">
-                    <TextBlock Text=" Now playing: " FontFamily="Rockwell Condensed" FontSize="32" Foreground="Black"/>
+                <ToolBar Background="#FFEEF5FD">
+                    <Button Command="ApplicationCommands.Open">
+                        <Image Source="/icons/Folder.png" Height="45"/>
+                    </Button>
+                    <Separator />
+                    <Button Command="MediaCommands.Play">
+                        <Image Source="/icons/Play.png" Height="45"/>
+                    </Button>
+                    <Button Command="MediaCommands.Pause">
+                        <Image Source="/icons/Pause.png" Height="45"/>
+                    </Button>
+                    <Button Command="MediaCommands.Stop">
+                        <Image Source="/icons/Stop.png" Height="45"/>
+                    </Button>
+                </ToolBar>
             </StackPanel>
-        </StackPanel>
+
+            <StackPanel Width="430" Orientation="Vertical" Margin="9, 4">
+                <TextBlock Text=" Now playing: " FontFamily="Rockwell Condensed" FontSize="32" TextAlignment="Center" Foreground="Black"/>
+                <TextBlock x:Name="txtNowPlaying" Text="" FontFamily="Rockwell" FontSize="24" Foreground="Black"/>
+            </StackPanel>
         </StackPanel>
 
         <MediaElement x:Name="mePlayer" Grid.Row="1" LoadedBehavior="Manual" Stretch="None" />
@@ -66,9 +71,10 @@
                 <ProgressBar Name="pbVolume" Width="50" Height="12" Maximum="1" Value="{Binding ElementName=mePlayer, Path=Volume}" />
             </StatusBarItem>
         </StatusBar>
-        <StackPanel VerticalAlignment="Bottom" >
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Margin="5" >
             <Button x:Name="btnTest" Width="80" Height="35" Content="testwav" Click="BtnTest_Click"></Button>
-            <Button x:Name="btnTest1" Width="80" Height="35" Content="testmp3" Click="BtnTest1_Click"></Button>
+            <Button x:Name="btnTest1" Width="80" Height="35" Content="testmp3" Click="BtnTest1_Click" ></Button>
         </StackPanel>
+        
     </Grid>
 </Window>

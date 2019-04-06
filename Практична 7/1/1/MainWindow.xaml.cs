@@ -66,8 +66,9 @@ namespace _1
 
         private void Play_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            mePlayer.Play();
-            mediaPlayerIsPlaying = true;
+                //txtNowPlaying.Text = mePlayer.Source.ToString();
+                mePlayer.Play();
+                mediaPlayerIsPlaying = true;
         }
 
         private void Pause_CanExecute(object sender, CanExecuteRoutedEventArgs e)
@@ -120,14 +121,18 @@ namespace _1
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Media files (*.wav;)|*.wav;|All files (*.*)|*.*";//*.mpg;*.mpeg;*.mp4;)|*.mp3;*.mpg;*.mpeg;*.mp4;|All files (*.*)|*.*";
             if (openFileDialog.ShowDialog() == true)
+            {
                 wavFile = openFileDialog.FileName;
+                txtNowPlaying.Text = "Wav File";
+                mePlayer.Source = new Uri(wavFile);
+            }
 
             // play the audio file
-            if (!string.IsNullOrEmpty(wavFile))
-            {
-                player.LoadSound(wavFile);
-                player.PlaySound();
-            }
+            //if (!string.IsNullOrEmpty(wavFile))
+            //{
+            //    player.LoadSound(wavFile);
+            //    player.PlaySound();
+            //}
         }
 
         private void BtnTest1_Click(object sender, RoutedEventArgs e)
@@ -142,14 +147,18 @@ namespace _1
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Media files (*.mp3;)|*.mp3;|All files (*.*)|*.*";//*.mpg;*.mpeg;*.mp4;)|*.mp3;*.mpg;*.mpeg;*.mp4;|All files (*.*)|*.*";
             if (openFileDialog.ShowDialog() == true)
-                mp3File = openFileDialog.FileName;
-
-            // play the audio file
-            if (!string.IsNullOrEmpty(mp3File))
             {
-                player.Play(mp3Player, mp3File);
-                
+                mp3File = openFileDialog.FileName;
+                txtNowPlaying.Text = "Mp3 File";
+                mePlayer.Source = new Uri(mp3File);
             }
+
+            ////play the audio file
+            //if (!string.IsNullOrEmpty(mp3File))
+            //{
+            //    player.Play(mp3Player, mp3File);
+
+            //}
         }
 
         //private void btnOpenAudioFile_Click(object sender, RoutedEventArgs e)
