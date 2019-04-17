@@ -12,6 +12,7 @@ namespace _1
         public string Name { get; set; }
         public int Age { get; set; }
         public int TownId { get; set; }
-        public Minion Minion1 { get; set; }
+        public List<MinionsVillains> MinionsVillains1 { get; set; }
+        public Town Town1 { get; set; }
     }
 }

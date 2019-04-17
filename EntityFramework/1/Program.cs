@@ -60,16 +60,55 @@ namespace _1
                 Minion minion6 = new Minion { Name = "Mitty",   Age = 19, Id = 6, TownId = 4 };
 
 
-                //adding to DB 
+                #region adding to DB
+                Console.WriteLine("Processing...");
+                db.Countries.Add(country1);
+                db.Countries.Add(country2);
+                db.Countries.Add(country3);
+                db.Countries.Add(country4);
+                db.Countries.Add(country5);
+
+                db.Towns.Add(town1);
+                db.Towns.Add(town2);
+                db.Towns.Add(town3);
+                db.Towns.Add(town4);
+                db.Towns.Add(town5);
+                db.Towns.Add(town6);
+                db.Towns.Add(town7);
+                db.Towns.Add(town8);
+                db.Towns.Add(town9);
+                db.Towns.Add(town10);
+
+                db.EvilnessFactors.Add(evilnessFactor1);
+                db.EvilnessFactors.Add(evilnessFactor2);
+                db.EvilnessFactors.Add(evilnessFactor3);
+                db.EvilnessFactors.Add(evilnessFactor4);
+
+                db.Villains.Add(villain1);
+                db.Villains.Add(villain2);
+                db.Villains.Add(villain3);
+                db.Villains.Add(villain4);
+
+                db.MinionsVillains.Add(minionsVillains1);
+                db.MinionsVillains.Add(minionsVillains2);
+                db.MinionsVillains.Add(minionsVillains3);
+                db.MinionsVillains.Add(minionsVillains4);
+                db.MinionsVillains.Add(minionsVillains5);
+                db.MinionsVillains.Add(minionsVillains6);
+                db.MinionsVillains.Add(minionsVillains7);
+                db.MinionsVillains.Add(minionsVillains8);
+
                 db.Minions.Add(minion1);
                 db.Minions.Add(minion2);
-                db.EvilnessFactors.Add(evilnessFactor1);
-                db.Villains.Add(villain1);
-                db.MinionsVillains.Add(minionsVillains1);
-                db.Countries.Add(country1);
-                db.Towns.Add(town1);
+                db.Minions.Add(minion3);
+                db.Minions.Add(minion4);
+                db.Minions.Add(minion5);
+                db.Minions.Add(minion6);
+
                 db.SaveChanges();
-                Console.WriteLine("Added!");
+                Console.WriteLine("Data Added!");
+                Console.ReadLine();
+                #endregion
             }
         }
         
