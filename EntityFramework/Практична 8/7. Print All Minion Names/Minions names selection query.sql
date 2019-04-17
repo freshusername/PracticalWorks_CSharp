@@ -1,2 +1,0 @@
-﻿SELECT Name
-FROM Minions;

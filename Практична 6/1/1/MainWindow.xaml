@@ -53,10 +53,10 @@
                         </StackPanel>
                     </materialDesign:PopupBox>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
+                <!--<StackPanel Orientation="Horizontal">
                     <TextBlock Text="Price of parcel: " FontFamily="Rockwell" FontSize="20" FontStyle="Italic"/>
                     <TextBox x:Name="txtPrice" Width="270"/>
-                </StackPanel>
+                </StackPanel>-->
                 <Button x:Name="btnSubmit" Margin="15, 20, 15, 20" Height="50" Width="420" Content="SUBMIT" Background="#FF3984C0" Foreground="White" Click="btnSubmit_Click"></Button>
 
                 <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
