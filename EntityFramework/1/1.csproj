@@ -52,6 +52,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="1.2\2.cs" />
+    <Compile Include="3.cs" />
+    <Compile Include="9.cs" />
     <Compile Include="Country.cs" />
     <Compile Include="EvilnessFactor.cs" />
     <Compile Include="GenerateRandom.cs" />
