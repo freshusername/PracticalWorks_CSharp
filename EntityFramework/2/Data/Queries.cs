@@ -268,8 +268,26 @@ namespace _2.Data
                 Console.WriteLine($"{employee.FirstName} {employee.LastName} - {employee.JobTitle} - (${employee.Salary:F4})");
             }
         }
-        public void Query12()
+        public void Query12(int projectId)
         {
+            string projname;
+            var project = context.Projects.Find(projectId);
+            if (project == null)
+            {
+                return;
+            }
+
+            
+
+            foreach (var employee in context.Employees.Where(e => e.Projects.Any(p => p.ProjectId == projectId)))
+            {
+                
+                employee.Projects.Remove(project);
+            }
+
+            context.Projects.Remove(project);
+            context.SaveChanges();
+            Console.WriteLine($"project with id - {projectId} has being removed!");
 
         }
         public void Query13()

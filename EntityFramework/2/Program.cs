@@ -25,7 +25,7 @@ namespace _2
             //q.Query9(10);
             //q.Query10();
             //q.Query11();
-            q.Query12();
+            q.Query12(2);
             //q.Query13();
             //q.Query14();
 
