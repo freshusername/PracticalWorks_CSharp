@@ -290,9 +290,28 @@ namespace _2.Data
             Console.WriteLine($"project with id - {projectId} has being removed!");
 
         }
-        public void Query13()
+        public void Query13(string townName)
         {
+            var deletingTown = context.Towns
+                .FirstOrDefault(t => t.Name.Equals(townName, StringComparison.OrdinalIgnoreCase));
+            if (deletingTown == null)
+            {
+                Console.WriteLine($"Town {townName} not found.");
+                return;
+            }
 
+            foreach (var employee in context.Employees.Where(e => e.Address.TownId == deletingTown.TownId))
+            {
+                employee.Address = null;
+            }
+
+            var deletingAddresses = context.Addresses
+                .Where(a => a.TownId == deletingTown.TownId).ToArray();
+            context.Addresses.RemoveRange(deletingAddresses);
+            context.Towns.Remove(deletingTown);
+            context.SaveChanges();
+
+            Console.WriteLine($"{deletingAddresses.Length} address in {deletingTown.Name} was deleted");
         }
 
     }
