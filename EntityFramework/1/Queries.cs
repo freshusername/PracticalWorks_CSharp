@@ -8,10 +8,10 @@ namespace _1
 {
     class Queries
     {
+        MinionsContext context = new MinionsContext();
         public void Query2()
         {
-            MinionsContext context = new MinionsContext();
-
+            Console.WriteLine("Query2: ");
             //var test = context.MinionsVillains.GroupBy(x => x.VillainId)
             //    .Where(w => w.Count() == 3)
             //    .Select(w => w.Key)
@@ -49,11 +49,9 @@ namespace _1
             Console.ReadLine();
 
         }
-
         public void Query3()
         {
-            MinionsContext context = new MinionsContext();
-
+            Console.WriteLine("Query3: ");
             //var test = context.MinionsVillains.GroupBy(x => x.VillainId)
             //    .Where(w => w.Count() == 3)
             //    .Select(w => w.Key)
@@ -95,10 +93,67 @@ namespace _1
 
             Console.ReadLine();
         }
+        public void Query5()
+        {
+            Console.WriteLine("Query4: ");
+            Console.WriteLine("Choose country from the list below: ");
+            var v4 = context.Countries;
+            foreach (var item in v4)
+            {
+                Console.WriteLine(item.Id + " " + item.Name);
+            }
+            Console.WriteLine("Input digit of country: ");
+            int temp = int.Parse(Console.ReadLine());
 
+            var v5 = context.Towns;
+            foreach (var item in v5)
+            {
+                if (item.Id == temp)
+                {
+                    item.Name = item.Name.ToUpper();
+                }
+            }
+            context.SaveChanges();
+            var v6 = context.Towns;
+            foreach (var item in v6)
+            {
+                Console.WriteLine(item.Name);
+            }
+            Console.ReadLine();
+        }
+        public void Query6()
+        {
+            var v5 = context.Villains;
+            foreach (var item in v5)
+            {
+                Console.WriteLine(item.Id + " " + item.Name);
+            }
+            int temp = int.Parse(Console.ReadLine());
+
+            MinionsVillains minionsVillains = context.MinionsVillains
+                .Where(o => o.VillainId == temp)
+                .FirstOrDefault();
+
+            context.MinionsVillains.Remove(minionsVillains);
+            context.SaveChanges();
+
+            var v6 = context.MinionsVillains;
+            foreach (var i in v6)
+            {
+                Console.WriteLine(i.MinionId + " " + i.VillainId);
+            }
+
+            Villain villain = context.Villains
+                .Where(o => o.Id == temp)
+                .FirstOrDefault();
+
+            context.Villains.Remove(villain);
+            context.SaveChanges();
+
+        }
         public void Query9()
         {
-            MinionsContext context = new MinionsContext();
+            Console.WriteLine("Query5: ");
             Console.WriteLine("Input minions' id: ");
             int id = int.Parse(Console.ReadLine());
 
@@ -126,10 +181,9 @@ namespace _1
             context.SaveChanges();
             Console.ReadLine();
         }
-
         public void Query8()
         {
-            MinionsContext context = new MinionsContext();
+            Console.WriteLine("Query8: ");
             Console.WriteLine("Input minions' id: ");
             int id = int.Parse(Console.ReadLine());
 
@@ -159,7 +213,7 @@ namespace _1
         }
         public void Query7()
         {
-            MinionsContext context = new MinionsContext();
+            Console.WriteLine("Query7: ");
 
             var names = context.Minions
                 .Where(b => b.Id != 0)
@@ -180,32 +234,10 @@ namespace _1
             }
 
             context.SaveChanges();
-            
+            Console.ReadLine();
+
         }
-        public void Query6()
-        {
-            MinionsContext context = new MinionsContext();
-            Console.WriteLine("Input villains' Ids: ");
-            var IdData = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
-            for (int i = 0; i < IdData.Length; i++)
-            {
-                var names = context.Villains
-                .Where(b => b.Id == IdData[i])
-                .ToArray();
-               
-            }
-            
+       
 
-            foreach (var item in IdData) //ERRORR
-                {
-                    Console.WriteLine(item + " ");
-                
-                }
-            
-            
-
-
-            
-        }
     }
 }
