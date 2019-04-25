@@ -16,25 +16,25 @@ namespace _1
             //q.Query2();
             Console.WriteLine();
             Console.WriteLine();
-            //q.Query3();
+           // q.Query3();
             Console.WriteLine();
             Console.WriteLine();
-            q.Query5();
+            q.Query4();
             Console.WriteLine();
             Console.WriteLine();
-            q.Query5();
+            //q.Query5();
             Console.WriteLine();
             Console.WriteLine();
             //q.Query6();
             Console.WriteLine();
             Console.WriteLine();
-            q.Query7();
+            //q.Query7();
             Console.WriteLine();
             Console.WriteLine();
-            q.Query8();
+            //q.Query8();
             Console.WriteLine();
             Console.WriteLine();
-            q.Query9();
+            //q.Query9();
 
             Console.ReadLine();
         }

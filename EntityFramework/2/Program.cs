@@ -17,10 +17,10 @@ namespace _2
             //q.Query1();
             //q.Query2();
             //q.Query3();
-            //q.Query4(); error
+            //q.Query4(); //
             //q.Query5(2001, 2003);
             //q.Query6();
-            //q.Query7(147); Not done
+            //q.Query7(147); //
             //q.Query8();
             //q.Query9(10);
             //q.Query10();

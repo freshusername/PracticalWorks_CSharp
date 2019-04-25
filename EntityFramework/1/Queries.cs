@@ -93,6 +93,139 @@ namespace _1
 
             Console.ReadLine();
         }
+        public void Query4()
+        {
+            string name;
+            int age;
+
+            string townName;
+            string villainName;
+
+            String s;
+            Console.WriteLine("Add Minion : ");
+
+            Console.WriteLine("Input name of minion: ");
+            Console.WriteLine("Input age of minion: ");
+            Console.WriteLine("Input town of minion: ");
+
+            s = Console.ReadLine();
+            String[] words = s.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            name = words[0].ToString();
+            age = Convert.ToInt32(words[1]);
+            townName = words[2];
+
+            Minion minions = new Minion();
+
+            Console.WriteLine("Input name of Villain : ");
+            villainName = Console.ReadLine();
+
+            Town towns = new Town();
+            var Ttowns = context.Towns.ToList();
+
+            bool flag = false;
+            bool flag1 = false;
+            int idd = 0;
+            foreach (var t in Ttowns)
+            {
+                if (t.Name == words[2])
+                {
+                    idd = t.Id;
+                    flag = true;
+                    break;
+
+                }
+                else if (t.Name != words[2])
+                {
+
+                    flag = false;
+                }
+            }
+
+            if (flag == true)
+            {
+                minions.TownId = idd;
+                minions.Name = name;
+                minions.Age = age;
+                context.Minions.Add(minions);
+                context.SaveChanges();
+                Console.WriteLine("You have this town ");
+            }
+            else
+            {
+                towns.Name = words[2];
+                context.Towns.Add(towns);
+                context.SaveChanges();
+
+                var newtowns = context.Towns.ToList();
+                minions.Name = name;
+                minions.Age = age;
+                foreach (var t in newtowns)
+                {
+                    if (t.Name == townName)
+                    {
+                        minions.TownId = t.Id;
+                    }
+                }
+
+                context.Minions.Add(minions);
+                context.SaveChanges();
+                Console.WriteLine("This town were added to DB");
+            }
+
+
+
+            Villain villains = new Villain();
+            var villainss = context.Villains.ToList();
+            int idvillain = 0;
+            int idminion = 0;
+            var minionss = context.Minions.ToList();
+            MinionsVillains minionsVillains = new MinionsVillains();
+
+            foreach (var v in villainss)
+            {
+                if (villainName == v.Name)
+                {
+                    idvillain = v.Id;
+                    flag1 = true;
+                    break;
+                }
+                else if (villainName != v.Name)
+                {
+                    flag1 = false;
+                }
+            }
+
+            if (flag1 == true)
+            {
+
+                idminion = minionss.Last().Id;
+                minionsVillains.MinionId = idminion;
+                minionsVillains.VillainId = idvillain;
+                context.MinionsVillains.Add(minionsVillains);
+                context.SaveChanges();
+                Console.WriteLine("You have this villain ");
+            }
+            else
+            {
+                villains.Name = villainName;
+                villains.EvilnessFactorId = 5;
+                context.Villains.Add(villains);
+                context.SaveChanges();
+
+                var newvillains = context.Villains.ToList();////////////
+
+                idminion = minionss.Last().Id;
+                minionsVillains.MinionId = idminion;
+                minionsVillains.VillainId = newvillains.Last().Id;
+
+                context.MinionsVillains.Add(minionsVillains);
+                context.SaveChanges();
+
+                Console.WriteLine("This villain were added to DB");
+
+            }
+
+        }
         public void Query5()
         {
             Console.WriteLine("Query4: ");
@@ -237,7 +370,7 @@ namespace _1
             Console.ReadLine();
 
         }
-       
+
 
     }
 }
